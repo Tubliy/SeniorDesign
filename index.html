@@ -1,156 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap"
-    rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-
   <meta charset="UTF-8" />
   <title>A Wearable Human-Machine Interface for Drone Operation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css?v=1" />
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1 class="orbitron slide-in-up">A Wearable Human-Machine Interface for Drone Operation</h1>
-      <p>
-        A wearable glove that uses inductive coil signals and gesture recognition
-        to control a drone in real time.
-      </p>
-      <a href="#demo" class="btn-primary">Watch Demo</a>
+  <!-- Top Nav -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">G</span>
+        <span class="brand-text">
+          <span class="brand-name">GestureGlove</span>
+          <span class="brand-tagline">Wearable Drone Interface</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#applications">Applications</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#resources" class="nav-cta">Docs</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <nav class="top-nav">
-    <a href="#overview">Overview</a>
-    <a href="#hardware">Hardware</a>
-    <a href="#ml">Machine Learning</a>
-    <a href="#architecture">System Architecture</a>
-    <a href="#demo">Demo</a>
-    <a href="#team">Team</a>
-  </nav>
+  <!-- Hero -->
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-animate="fade-up">
+          <p class="eyebrow">Senior Design · NYIT ECE</p>
+          <h1 class="orbitron hero-title">
+            A Wearable Human–Machine Interface<br />
+            for Drone Operation
+          </h1>
+          <p class="hero-subtitle">
+            A gesture-controlled glove that fuses inductive sensing, IMU data,
+            and on-device machine learning to fly a drone in real time.
+          </p>
+          <div class="hero-actions">
+            <a href="#demo" class="btn btn-primary">Watch Flight Demo</a>
+            <a href="#technology" class="btn btn-ghost">Explore the Stack</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="metric-label">Gesture Set</span>
+              <span class="metric-value">2 core</span>
+              <span class="metric-note">Fist &amp; finger-gun</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Latency</span>
+              <span class="metric-value">&lt;10 ms</span>
+              <span class="metric-note">On-device inference</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sensors</span>
+              <span class="metric-value">Inductive + IMU</span>
+              <span class="metric-note">ESP32 edge compute</span>
+            </div>
+          </div>
+        </div>
 
-  <main>
-    <section id="overview" class="section">
-      <h2>Project Overview</h2>
-      <p>
-        This senior design project demonstrates a glove-based interface for
-        controlling a drone using inductive coil sensors and machine learning.
-        By mapping coil signals to discrete hand gestures, the glove allows the
-        user to issue high-level control commands (e.g., take off, land, move,
-        rotate) without a traditional controller.
-      </p>
-      <p>
-        Our goals are to explore intuitive human–drone interaction, evaluate the
-        performance of gesture recognition from inductive sensor data, and
-        design a complete embedded system from sensing to actuation.
-      </p>
-    </section>
-
-    <section id="hardware" class="section section-alt">
-      <h2>Hardware Design</h2>
-      <ul>
-        <li><strong>Sensing:</strong> Inductive coils embedded in a glove to measure finger proximity/position.</li>
-        <li><strong>Processing:</strong> On-board microcontroller to read coil values and preprocess signals.</li>
-        <li><strong>Communication:</strong> Wireless link to the drone (e.g., Wi-Fi/Bluetooth/custom RC interface).</li>
-        <li><strong>Power:</strong> Battery-powered wearable design for fully untethered control.</li>
-      </ul>
-      <p class="note">
-        TODO: Add a labeled photo of the glove and sensor layout here.
-      </p>
-      <!-- Example image placeholder -->
-      <!-- <img src="img/glove-photo.jpg" alt="Drone control glove with inductive coils" class="img-wide" /> -->
-    </section>
-
-    <section id="ml" class="section">
-      <h2>Machine Learning Pipeline</h2>
-      <p>
-        The glove streams raw inductive coil readings, which are converted into
-        features and fed into a trained classifier that predicts the current
-        gesture.
-      </p>
-      <ol>
-        <li>Collect labeled data for each gesture using the glove.</li>
-        <li>Preprocess signals (filtering, normalization, feature extraction).</li>
-        <li>Train a machine learning model to map coil features to gesture labels.</li>
-        <li>Deploy the trained model on the glove’s embedded processor or a companion device.</li>
-        <li>Send the corresponding control command to the drone in real time.</li>
-      </ol>
-      <p class="note">
-        TODO: Briefly describe your exact model (e.g., k-NN, SVM, small neural net, TinyML, etc.).
-      </p>
-    </section>
-
-    <section id="architecture" class="section section-alt">
-      <h2>System Architecture</h2>
-      <p>
-        The overall system connects the glove, ML inference, and drone control
-        loop. The diagram below summarizes the data flow.
-      </p>
-      <p class="note">
-        TODO: Insert a block diagram image here showing:
-        Glove → MCU → ML Inference → Command Mapping → Drone.
-      </p>
-      <!-- <img src="img/architecture.png" alt="System architecture diagram" class="img-wide" /> -->
-    </section>
-
-    <section id="demo" class="section">
-      <h2>Demo</h2>
-      <p>
-        The following demo video shows the glove recognizing gestures and
-        controlling the drone in real time.
-      </p>
-
-      <!-- If you upload a video to YouTube, embed it like this: -->
-      <!--
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-          title="Glove-controlled drone demo"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
+        <div class="hero-media" data-animate="fade-left">
+          <div class="hero-photo hero-photo-main">
+            <img
+              src="assets/drone-demo.jpg"
+              alt="Gesture glove flying a drone in front of a window"
+              loading="lazy"
+            />
+          </div>
+          <div class="hero-photo hero-photo-secondary">
+            <img
+              src="assets/glove-top.jpg"
+              alt="Close-up of the inductive sensing glove prototype"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
-      -->
-
-      <p class="note">
-        TODO: Add a video link, GIF, or images showing your tests and flight demos.
-      </p>
     </section>
 
+    <!-- Solution -->
+    <section id="solution" class="section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>From Hand Motion to Flight Control</h2>
+          <p>
+            GestureGlove turns natural hand poses into reliable flight commands using
+            inductive coils, an IMU, and a tiny neural network running on the ESP32.
+          </p>
+        </div>
+
+        <div class="grid grid-3" data-animate="fade-up">
+          <article class="card">
+            <h3>Wearable Sensor Glove</h3>
+            <p>
+              Stainless-steel inductive sensors are stitched along key finger joints
+              to measure bend, while an IMU tracks wrist orientation for context-aware control.
+            </p>
+          </article>
+          <article class="card">
+            <h3>On-Device Machine Learning</h3>
+            <p>
+              A lightweight CNN, trained in Edge Impulse and deployed as an Arduino library,
+              classifies gestures locally on the ESP32 in real time.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Wireless Drone Link</h3>
+            <p>
+              Classified gestures are fused with orientation and streamed via ESP-to-ESP
+              communication to an open-source drone and AirSim bridge for smooth, responsive flight.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology -->
+    <section id="technology" class="section section-alt">
+      <div class="container tech-layout">
+        <div class="tech-copy" data-animate="fade-right">
+          <h2>Technology Stack</h2>
+          <p>
+            The system is built as a full end-to-end platform – from sensor physics to
+            drone actuation – so every layer can be tuned, measured, and improved.
+          </p>
+
+          <ul class="feature-list">
+            <li>
+              <span class="feature-title">Inductive Sensing with LDC1614</span>
+              <span class="feature-body">
+                High-resolution, contactless finger tracking robust to dust and
+                mechanical wear, ideal for long-term use in real environments.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">ESP32 Edge Compute</span>
+              <span class="feature-body">
+                Dual-core microcontroller sampling inductive and IMU streams,
+                running ML inference, and transmitting commands over Wi-Fi / ESP-NOW.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">AirSim &amp; Physical Drone</span>
+              <span class="feature-body">
+                A Python bridge translates glove output into velocity and yaw commands
+                for an AirSim multirotor and our custom hardware test platform.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tech-media" data-animate="fade-left">
+          <div class="media-card">
+            <img
+              src="assets/glove-side.jpg"
+              alt="Side view of the instrumented glove with inductive coils and ESP32"
+              loading="lazy"
+            />
+            <div class="media-caption">
+              First-generation prototype: inductive coils, LDC1614 board, IMU, and ESP32
+              mounted on a knit glove with flexible wiring.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety & ML -->
+    <section id="safety" class="section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Designed for Safe, Stable Control</h2>
+          <p>
+            Gesture-driven flight has to be predictable. We combine ML confidence,
+            temporal voting, and orientation gating to keep the drone stable.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card" data-animate="fade-right">
+            <h3>Gesture Classification</h3>
+            <ul class="bullet-list">
+              <li>1-second sliding window of inductive + IMU data.</li>
+              <li>Features processed and fed to a 1D CNN for inference.</li>
+              <li>Only predictions above a confidence threshold are accepted.</li>
+            </ul>
+          </div>
+
+          <div class="card" data-animate="fade-left">
+            <h3>Command Safety Logic</h3>
+            <ul class="bullet-list">
+              <li>Temporal majority vote over each window for jitter-free output.</li>
+              <li>Orientation buckets (palm up/down/left/right) gate which commands are allowed.</li>
+              <li>Emergency hover / stop mapped for safe fallback behavior.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section id="applications" class="section section-alt">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Beyond Drones: Where This Can Go</h2>
+          <p>
+            The same inductive sensing architecture can power rehabilitation tools,
+            assistive communication devices, and industrial gesture controllers.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card" data-animate="fade-up">
+            <h3>Pediatric Rehab</h3>
+            <p>
+              Turn repetitive fine-motor exercises into an engaging game:
+              children control drones or virtual avatars by completing therapy gestures.
+            </p>
+          </article>
+          <article class="card" data-animate="fade-up">
+            <h3>Assistive Communication</h3>
+            <p>
+              Map hand shapes to symbolic commands or sign-language primitives
+              for low-friction, wearable communication support.
+            </p>
+          </article>
+          <article class="card" data-animate="fade-up">
+            <h3>Industrial Control</h3>
+            <p>
+              Enable hands-free interaction with robots or machinery in environments
+              where traditional controllers are impractical or unsafe.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo -->
+    <section id="demo" class="section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Demo</h2>
+          <p>
+            See the glove in action controlling takeoff, translation, and yaw using only
+            two core gestures, filtered through our safety and voting logic.
+          </p>
+        </div>
+
+        <div class="demo-layout" data-animate="fade-up">
+          <!-- If you upload a video to YouTube, replace VIDEO_ID below -->
+          <!--
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="GestureGlove drone demo"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          -->
+          <div class="demo-placeholder">
+            <p>
+              Add your demo video, GIF, or sequence of images here. For now, this section
+              highlights that a full end-to-end control loop is already working.
+            </p>
+            <a href="#" class="btn btn-secondary">Add Demo Link</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
     <section id="team" class="section section-alt">
-      <h2>Team & Acknowledgements</h2>
-      <ul>
-        <li><strong>Team Members:</strong> Your name, teammates, roles.</li>
-        <li><strong>Advisor:</strong> Professor / Lab.</li>
-        <li><strong>Institution:</strong> Department, University.</li>
-      </ul>
-      <p>
-        We thank our advisors and lab members for their guidance, and the
-        sponsors who provided hardware and test equipment.
-      </p>
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Team &amp; Advisor</h2>
+          <p>GestureGlove is being developed as Capstone Team #1 in NYIT’s ECE program.</p>
+        </div>
+
+        <div class="grid grid-2 team-grid">
+          <div class="card" data-animate="fade-right">
+            <h3>Team #1</h3>
+            <ul class="bullet-list">
+              <li><strong>Beniamin Borowski</strong> – Drone integration &amp; glove design</li>
+              <li><strong>Christian Calvo</strong> – Machine learning &amp; data pipeline</li>
+              <li><strong>Daniel Plotkin</strong> – Inductive sensor hardware &amp; firmware</li>
+              <li><strong>Erik Schlosser</strong> – IMU, project management &amp; systems</li>
+            </ul>
+          </div>
+          <div class="card" data-animate="fade-left">
+            <h3>Faculty Advisor</h3>
+            <p><strong>Dr. Reza K. Amineh</strong><br />Department of Electrical &amp; Computer Engineering<br />New York Institute of Technology</p>
+            <p class="note">
+              This project is part of a multi-semester effort to explore inductive sensing,
+              wearable interfaces, and embedded AI for human–machine interaction.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Resources</h2>
-      <ul>
-        <!-- Replace # with actual links -->
-        <li><a href="#" target="_blank">Firmware / Glove Code (GitHub)</a></li>
-        <li><a href="#" target="_blank">Machine Learning Training Notebook</a></li>
-        <li><a href="#" target="_blank">Final Report (PDF)</a></li>
-      </ul>
+    <!-- Resources -->
+    <section id="resources" class="section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Project Resources</h2>
+          <p>Dig deeper into the firmware, data, and documentation behind the glove.</p>
+        </div>
+
+        <div class="grid grid-3 resources-grid" data-animate="fade-up">
+          <a class="card card-link" href="#" target="_blank" rel="noreferrer">
+            <h3>Firmware &amp; Glove Code</h3>
+            <p>ESP32 firmware, inductive sensing drivers, and gesture classifier integration.</p>
+            <span class="card-link-label">View on GitHub →</span>
+          </a>
+          <a class="card card-link" href="#" target="_blank" rel="noreferrer">
+            <h3>Machine Learning Notebook</h3>
+            <p>Data collection, feature engineering, and model training in Edge Impulse / Python.</p>
+            <span class="card-link-label">Open notebook →</span>
+          </a>
+          <a class="card card-link" href="Senior Design 2 Midterm Report.pdf" target="_blank" rel="noreferrer">
+            <h3>Midterm Report</h3>
+            <p>Full project proposal, technical architecture, risks, and commercialization plan.</p>
+            <span class="card-link-label">Download PDF →</span>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <p>© <span id="year"></span> Drone Control Glove – Senior Design Project</p>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> GestureGlove · Team #1 · NYIT ECE</p>
+      <p class="footer-note">
+        Built with ESP32, inductive sensing, and on-device ML. Hosted on GitHub Pages.
+      </p>
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
