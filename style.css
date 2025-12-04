@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  color: #111827;
+  background: #f9fafb;
+  line-height: 1.6;
+}
+
+.hero {
+  background: linear-gradient(135deg, #1f2933, #111827);
+  color: #f9fafb;
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  background: #111827;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  z-index: 10;
+}
+
+.top-nav a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.top-nav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-alt {
+  background: #ffffff;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.section p,
+.section li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.section ul,
+.section ol {
+  margin-left: 1.25rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 0.75rem;
+}
+
+.img-wide {
+  width: 100%;
+  border-radius: 0.75rem;
+  margin-top: 1rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-top: 1rem;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}

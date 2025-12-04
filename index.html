@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Machine Learning Drone Glove | Senior Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Machine Learning Drone Control Glove</h1>
+      <p>
+        A wearable glove that uses inductive coil signals and gesture recognition
+        to control a drone in real time.
+      </p>
+      <a href="#demo" class="btn-primary">Watch Demo</a>
+    </div>
+  </header>
+
+  <nav class="top-nav">
+    <a href="#overview">Overview</a>
+    <a href="#hardware">Hardware</a>
+    <a href="#ml">Machine Learning</a>
+    <a href="#architecture">System Architecture</a>
+    <a href="#demo">Demo</a>
+    <a href="#team">Team</a>
+  </nav>
+
+  <main>
+    <section id="overview" class="section">
+      <h2>Project Overview</h2>
+      <p>
+        This senior design project demonstrates a glove-based interface for
+        controlling a drone using inductive coil sensors and machine learning.
+        By mapping coil signals to discrete hand gestures, the glove allows the
+        user to issue high-level control commands (e.g., take off, land, move,
+        rotate) without a traditional controller.
+      </p>
+      <p>
+        Our goals are to explore intuitive human–drone interaction, evaluate the
+        performance of gesture recognition from inductive sensor data, and
+        design a complete embedded system from sensing to actuation.
+      </p>
+    </section>
+
+    <section id="hardware" class="section section-alt">
+      <h2>Hardware Design</h2>
+      <ul>
+        <li><strong>Sensing:</strong> Inductive coils embedded in a glove to measure finger proximity/position.</li>
+        <li><strong>Processing:</strong> On-board microcontroller to read coil values and preprocess signals.</li>
+        <li><strong>Communication:</strong> Wireless link to the drone (e.g., Wi-Fi/Bluetooth/custom RC interface).</li>
+        <li><strong>Power:</strong> Battery-powered wearable design for fully untethered control.</li>
+      </ul>
+      <p class="note">
+        TODO: Add a labeled photo of the glove and sensor layout here.
+      </p>
+      <!-- Example image placeholder -->
+      <!-- <img src="img/glove-photo.jpg" alt="Drone control glove with inductive coils" class="img-wide" /> -->
+    </section>
+
+    <section id="ml" class="section">
+      <h2>Machine Learning Pipeline</h2>
+      <p>
+        The glove streams raw inductive coil readings, which are converted into
+        features and fed into a trained classifier that predicts the current
+        gesture.
+      </p>
+      <ol>
+        <li>Collect labeled data for each gesture using the glove.</li>
+        <li>Preprocess signals (filtering, normalization, feature extraction).</li>
+        <li>Train a machine learning model to map coil features to gesture labels.</li>
+        <li>Deploy the trained model on the glove’s embedded processor or a companion device.</li>
+        <li>Send the corresponding control command to the drone in real time.</li>
+      </ol>
+      <p class="note">
+        TODO: Briefly describe your exact model (e.g., k-NN, SVM, small neural net, TinyML, etc.).
+      </p>
+    </section>
+
+    <section id="architecture" class="section section-alt">
+      <h2>System Architecture</h2>
+      <p>
+        The overall system connects the glove, ML inference, and drone control
+        loop. The diagram below summarizes the data flow.
+      </p>
+      <p class="note">
+        TODO: Insert a block diagram image here showing:
+        Glove → MCU → ML Inference → Command Mapping → Drone.
+      </p>
+      <!-- <img src="img/architecture.png" alt="System architecture diagram" class="img-wide" /> -->
+    </section>
+
+    <section id="demo" class="section">
+      <h2>Demo</h2>
+      <p>
+        The following demo video shows the glove recognizing gestures and
+        controlling the drone in real time.
+      </p>
+
+      <!-- If you upload a video to YouTube, embed it like this: -->
+      <!--
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+          title="Glove-controlled drone demo"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      -->
+
+      <p class="note">
+        TODO: Add a video link, GIF, or images showing your tests and flight demos.
+      </p>
+    </section>
+
+    <section id="team" class="section section-alt">
+      <h2>Team & Acknowledgements</h2>
+      <ul>
+        <li><strong>Team Members:</strong> Your name, teammates, roles.</li>
+        <li><strong>Advisor:</strong> Professor / Lab.</li>
+        <li><strong>Institution:</strong> Department, University.</li>
+      </ul>
+      <p>
+        We thank our advisors and lab members for their guidance, and the
+        sponsors who provided hardware and test equipment.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Resources</h2>
+      <ul>
+        <!-- Replace # with actual links -->
+        <li><a href="#" target="_blank">Firmware / Glove Code (GitHub)</a></li>
+        <li><a href="#" target="_blank">Machine Learning Training Notebook</a></li>
+        <li><a href="#" target="_blank">Final Report (PDF)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Drone Control Glove – Senior Design Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
