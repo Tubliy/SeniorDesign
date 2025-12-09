@@ -534,6 +534,23 @@ body {
   height: 100%;
 }
 
+/* GUI */
+.sensor-output-block {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #020617;
+  color: #e5e7eb;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.85rem;
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 /* Notes */
 
 .note {
