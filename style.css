@@ -556,7 +556,7 @@ body {
   width: 0.6ch;
   height: 1em;
   margin-left: 2px;
-  background: #e5e7eb;
+  background: #1a821a ;
   vertical-align: -0.15em;
   animation: blink-cursor 1s steps(2, start) infinite;
 }
