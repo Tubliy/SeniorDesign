@@ -550,6 +550,28 @@ body {
   white-space: pre-wrap;
   word-break: break-word;
 }
+.sensor-output-block.typing::after {
+  content: " ";
+  display: inline-block;
+  width: 0.6ch;
+  height: 1em;
+  margin-left: 2px;
+  background: #e5e7eb;
+  vertical-align: -0.15em;
+  animation: blink-cursor 1s steps(2, start) infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
 
 /* Notes */
 
