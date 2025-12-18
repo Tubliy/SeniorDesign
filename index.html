@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>A Wearable Human-Machine Interface for Drone Operation</title>
+  <title>IMU/Inductive Sensing Glove for Drone Control</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts -->
@@ -24,7 +24,7 @@
         <span class="brand-mark">G</span>
         <span class="brand-text">
           <span class="brand-name">GestureGlove</span>
-          <span class="brand-tagline">Wearable Drone Interface</span>
+          <span class="brand-tagline">IMU / Inductive Drone Control</span>
         </span>
       </a>
 
@@ -35,7 +35,11 @@
         <ul class="nav-links">
           <li><a href="#solution">Solution</a></li>
           <li><a href="#technology">Technology</a></li>
-          <li><a href="#safety">Safety</a></li>
+          <li><a href="#ml">ML &amp; Data</a></li>
+          <li><a href="#orientation">Orientation &amp; Commands</a></li>
+          <li><a href="#drone">Drone</a></li>
+          <li><a href="#issues">Issues</a></li>
+          <li><a href="#standards">Standards</a></li>
           <li><a href="#applications">Applications</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#resources">Docs</a></li>
@@ -52,12 +56,13 @@
         <div class="hero-copy" data-animate="fade-up">
           <p class="eyebrow">Senior Design · NYIT ECE</p>
           <h1 class="orbitron hero-title">
-            A Wearable Human–Machine Interface<br />
-            for Drone Operation
+            IMU / Inductive Sensing Glove<br />
+            for Drone Control
           </h1>
           <p class="hero-subtitle">
-            A gesture-controlled glove that fuses inductive sensing, IMU data,
-            and on-device machine learning to fly a drone in real time.
+            A wearable human–machine interface that fuses inductive sensing,
+            IMU data, and on-device machine learning to command both a
+            simulated and physical quadcopter.
           </p>
           <div class="hero-actions">
             <a href="#demo" class="btn btn-primary">Watch Flight Demo</a>
@@ -65,18 +70,18 @@
           </div>
           <div class="hero-metrics">
             <div class="metric">
-              <span class="metric-label">Gesture Set</span>
-              <span class="metric-value">3 gestures</span>
-              <span class="metric-note">Fist &amp; finger-gun , and open hand</span>
+              <span class="metric-label">Gesture Classes</span>
+              <span class="metric-value">3</span>
+              <span class="metric-note">Closed fist, finger-gun, open hand</span>
             </div>
             <div class="metric">
-              <span class="metric-label">Latency</span>
-              <span class="metric-value">&lt;2 ms</span>
-              <span class="metric-note">On-device inference</span>
+              <span class="metric-label">Validation Accuracy</span>
+              <span class="metric-value">≈94%</span>
+              <span class="metric-note">Quantized CNN on Edge Impulse</span>
             </div>
             <div class="metric">
-              <span class="metric-label">Sensors</span>
-              <span class="metric-value">Inductive + IMU</span>
+              <span class="metric-label">Sensing</span>
+              <span class="metric-value">LDC1614 + IMU</span>
               <span class="metric-note">ESP32 edge compute</span>
             </div>
           </div>
@@ -86,7 +91,7 @@
           <div class="hero-photo hero-photo-main">
             <img
               src="img/drone.png"
-              alt="Gesture glove flying a drone in front of a window"
+              alt="Gesture glove controlling a custom quadcopter"
               loading="lazy"
             />
           </div>
@@ -101,37 +106,83 @@
       </div>
     </section>
 
-    <!-- Solution -->
+    <!-- Solution / Project Goals -->
     <section id="solution" class="section">
       <div class="container">
         <div class="section-header" data-animate="fade-up">
           <h2>From Hand Motion to Flight Control</h2>
           <p>
-            GestureGlove turns natural hand poses into reliable flight commands using
-            inductive coils, an IMU, and a tiny neural network running on the ESP32.
+            Using TI’s LDC1614 inductive sensing board and an ESP32, the glove
+            detects hand gestures with machine learning and maps them into
+            reliable flight commands for a quadcopter and AirSim drone.
           </p>
         </div>
 
         <div class="grid grid-3" data-animate="fade-up">
           <article class="card">
+            <h3>Project Goals</h3>
+            <p>
+              Develop an inductive / IMU based gesture detection algorithm that
+              runs directly on the ESP32, demonstrate control of a virtual drone
+              in simulation, and construct a physical quadcopter for real-world
+              tests.
+            </p>
+          </article>
+          <article class="card">
             <h3>Wearable Sensor Glove</h3>
             <p>
-              Stainless-steel inductive sensors are stitched along key finger joints
-              to measure bend, while an IMU tracks wrist orientation for context-aware control.
+              Stainless-steel inductive coils are stitched along key finger
+              joints to measure bend, while an IMU tracks the wrist orientation.
+              Together they form a compact, fully wearable interface.
             </p>
           </article>
           <article class="card">
-            <h3>On-Device Machine Learning</h3>
+            <h3>End-to-End Control Loop</h3>
             <p>
-              A lightweight CNN, trained in Edge Impulse and deployed as an Arduino library,
-              classifies gestures locally on the ESP32 in real time.
+              Processed gestures and orientation are transmitted to a companion
+              ESP32, which drives virtual and physical drones to execute
+              translation, yaw, and altitude commands.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Motivation -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Motivation</h2>
+          <p>
+            The IMU/inductive glove is a platform for advancing wearable
+            interfaces, with applications ranging from sign-language inspired
+            communication tools to AR/VR control and robotic manipulation.
+          </p>
+        </div>
+
+        <div class="grid grid-3" data-animate="fade-up">
+          <article class="card">
+            <h3>Advancing Inductive Sensing with ML</h3>
+            <p>
+              Explore high-resolution inductive sensing combined with machine
+              learning as a path toward robust, contactless gesture and
+              sign-language systems.
             </p>
           </article>
           <article class="card">
-            <h3>Wireless Drone Link</h3>
+            <h3>Expanding Human–Machine Interfaces</h3>
             <p>
-              Classified gestures are fused with orientation and streamed via ESP-to-ESP
-              communication to an open-source drone and AirSim bridge for smooth, responsive flight.
+              Build seamless wearable controllers that integrate naturally with
+              AR/VR, robotics, and prosthetics, moving beyond traditional
+              joysticks and handheld remotes.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Practical Impact</h3>
+            <p>
+              Improve accessibility, awareness, and training by enabling faster,
+              more intuitive control of drones and other smart devices through
+              natural hand poses.
             </p>
           </article>
         </div>
@@ -139,35 +190,47 @@
     </section>
 
     <!-- Technology -->
-    <section id="technology" class="section section-alt">
+    <section id="technology" class="section">
       <div class="container tech-layout">
         <div class="tech-copy" data-animate="fade-right">
           <h2>Technology Stack</h2>
           <p>
-            The system is built as a full end-to-end platform – from sensor physics to
-            drone actuation – so every layer can be tuned, measured, and improved.
+            The system is built as a full end-to-end platform – from sensor
+            physics to drone actuation – so every layer can be tuned, measured,
+            and improved.
           </p>
 
           <ul class="feature-list">
             <li>
               <span class="feature-title">Inductive Sensing with LDC1614</span>
               <span class="feature-body">
-                High-resolution, contactless finger tracking robust to dust and
-                mechanical wear, ideal for long-term use in real environments.
+                A TI LDC1614 converts small changes in inductance from
+                stainless-steel thread coils into high-resolution digital
+                readings for each finger channel.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">IMU Orientation Tracking</span>
+              <span class="feature-body">
+                A 6-axis IMU provides 3-axis accelerometer data over I²C.
+                Dominant axes are used to classify palm orientation (up, down,
+                left, right), which gates available commands.
               </span>
             </li>
             <li>
               <span class="feature-title">ESP32 Edge Compute</span>
               <span class="feature-body">
-                Dual-core microcontroller sampling inductive and IMU streams,
-                running ML inference, and transmitting commands over Wi-Fi / ESP-NOW.
+                The ESP32 samples inductive and IMU streams, extracts
+                time-series features, runs the CNN, and transmits commands to a
+                companion ESP32 via Wi-Fi / ESP-NOW.
               </span>
             </li>
             <li>
               <span class="feature-title">AirSim &amp; Physical Drone</span>
               <span class="feature-body">
-                A Python bridge translates glove output into velocity and yaw commands
-                for an AirSim multirotor and our custom hardware test platform.
+                A Python bridge converts classified gestures and orientation
+                codes into velocity and yaw commands for an AirSim multirotor,
+                mirrored on a custom hardware quadcopter.
               </span>
             </li>
           </ul>
@@ -181,30 +244,132 @@
               loading="lazy"
             />
             <div class="media-caption">
-              First-generation prototype: inductive coils, LDC1614 board, IMU, and ESP32
-              mounted on a knit glove with flexible wiring.
+              First-generation prototypes (V1 and V2) evolved from a single-coil
+              layout to a multi-channel glove with integrated IMU and ESP32.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Safety & ML -->
-    <section id="safety" class="section">
+    <!-- Machine Learning & Data -->
+    <section id="ml" class="section section-alt">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Machine Learning &amp; Time-Series Data</h2>
+          <p>
+            The glove treats each gesture as a time-series pattern rather than a
+            static snapshot, enabling more robust recognition across users and
+            sessions.
+          </p>
+        </div>
+
+        <div class="grid grid-2" data-animate="fade-up">
+          <article class="card">
+            <h3>Data Gathering</h3>
+            <p>
+              Raw inductive and IMU data were collected for three gestures –
+              closed fist, finger-gun, and open hand – across many repetitions.
+              Scatter plots of raw values show each gesture occupying a distinct
+              region in feature space.
+            </p>
+            <p>
+              Because gestures create slowly varying signal levels instead of
+              periodic waveforms, a time-series pipeline is better suited than
+              spectral analysis for classification.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Model Architecture</h3>
+            <p>
+              A 1D CNN receives a short sliding window of multi-channel sensor
+              readings. Feature extraction and convolutional layers are followed
+              by dense layers that output probabilities for the three gesture
+              classes.
+            </p>
+            <p>
+              The quantized model achieves around <strong>94% validation
+              accuracy</strong> with low loss, and is exported as an Arduino
+              library for deployment on the ESP32.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Orientation & Command Mapping -->
+    <section id="orientation" class="section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Orientation Codes &amp; Command Mapping</h2>
+          <p>
+            Gesture recognition is combined with wrist orientation to create a
+            compact, expressive command set for drone control.
+          </p>
+        </div>
+
+        <div class="grid grid-2" data-animate="fade-up">
+          <article class="card">
+            <h3>Orientation Classification</h3>
+            <p>
+              The IMU’s 3-axis accelerometer is used to determine which axis
+              dominates the gravity vector:
+            </p>
+            <ul class="bullet-list">
+              <li><strong>Z-axis</strong> &rarr; palm up / palm down</li>
+              <li><strong>X-axis</strong> &rarr; palm left / palm right</li>
+            </ul>
+            <p>
+              These are encoded as orientation codes:
+            </p>
+            <ul class="bullet-list">
+              <li><strong>0</strong> – Palm down</li>
+              <li><strong>1</strong> – Palm left</li>
+              <li><strong>2</strong> – Palm up</li>
+              <li><strong>3</strong> – Palm right</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Gesture-to-Flight Mapping</h3>
+            <p>
+              By combining gesture class (fist vs. finger-gun) with orientation
+              code, high-level flight commands are generated, for example:
+            </p>
+            <ul class="bullet-list">
+              <li>Palm left + fist → rotate clockwise</li>
+              <li>Palm left + finger-gun → rotate clockwise (alternative pose)</li>
+              <li>Palm up + fist → move backward</li>
+              <li>Palm up + finger-gun → move forward</li>
+              <li>Palm down + finger-gun → move up</li>
+              <li>Palm down + fist → move down</li>
+            </ul>
+            <p>
+              This mapping provides intuitive spatial control while keeping the
+              gesture set small and robust.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety & ML Logic -->
+    <section id="safety" class="section section-alt">
       <div class="container">
         <div class="section-header" data-animate="fade-up">
           <h2>Designed for Safe, Stable Control</h2>
           <p>
-            Gesture-driven flight has to be predictable. We combine ML confidence,
-            temporal voting, and orientation gating to keep the drone stable.
+            Gesture-driven flight must be predictable. Confidence thresholds,
+            temporal voting, and orientation gating keep the drone stable and
+            reduce jitter.
           </p>
         </div>
 
         <div class="grid grid-2">
           <div class="card" data-animate="fade-right">
-            <h3>Gesture Classification</h3>
+            <h3>Gesture Classification Pipeline</h3>
             <ul class="bullet-list">
-              <li>1-second sliding window of inductive + IMU data.</li>
+              <li>Short sliding window of inductive + IMU data.</li>
               <li>Features processed and fed to a 1D CNN for inference.</li>
               <li>Only predictions above a confidence threshold are accepted.</li>
             </ul>
@@ -213,11 +378,151 @@
           <div class="card" data-animate="fade-left">
             <h3>Command Safety Logic</h3>
             <ul class="bullet-list">
-              <li>Temporal majority vote over each window for jitter-free output.</li>
-              <li>Orientation buckets (palm up/down/left/right) gate which commands are allowed.</li>
-              <li>Emergency hover / stop mapped for safe fallback behavior.</li>
+              <li>Temporal majority vote for each window to suppress noise.</li>
+              <li>Orientation buckets gate which commands are allowed.</li>
+              <li>Emergency hover / stop behavior for safe fallback.</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drone Platform -->
+    <section id="drone" class="section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Custom Quadcopter Platform</h2>
+          <p>
+            To validate real-world performance, the glove drives a custom-built
+            quadcopter based on an ESP32 flight controller.
+          </p>
+        </div>
+
+        <div class="grid grid-2" data-animate="fade-up">
+          <article class="card">
+            <h3>Hardware Overview</h3>
+            <p>
+              The drone uses an ESP32 DevKit, MOSFET motor drivers, and four
+              brushed DC motors, powered by a single-cell Li-Po battery. The
+              control stack is adapted from open-source designs and tuned for
+              glove-driven commands.
+            </p>
+            <p>
+              The same ESP-NOW / Wi-Fi link used in simulation is reused to send
+              velocity and yaw commands to the on-board controller.
+            </p>
+          </article>
+          <article class="card">
+            <h3>AirSim Integration</h3>
+            <p>
+              AirSim provides a safe environment to debug mapping, timing, and
+              safety logic before flying the physical platform. The glove’s
+              command stream is mirrored into both the simulator and the
+              quadcopter.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Issues & Lessons Learned -->
+    <section id="issues" class="section section-alt">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Issues &amp; Lessons Learned</h2>
+          <p>
+            Building a fully custom glove and quadcopter exposed several
+            real-world hardware and integration challenges.
+          </p>
+        </div>
+
+        <div class="grid grid-2" data-animate="fade-up">
+          <article class="card">
+            <h3>Glove &amp; Sensor Challenges</h3>
+            <ul class="bullet-list">
+              <li>
+                During testing, Channel 3 of the LDC1614 occasionally saturated
+                (jumping toward 1,000,000 counts), traced to cable motion and
+                power-state changes on the host laptop.
+              </li>
+              <li>
+                Micro-USB cable flexing introduced additional noise, requiring
+                better mechanical strain relief and grounding strategies.
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Drone Hardware Challenges</h3>
+            <ul class="bullet-list">
+              <li>
+                The purchased IMU module was a 6-axis MPU6050 instead of the
+                expected 9-axis device, changing available orientation data.
+              </li>
+              <li>
+                The Li-Po battery’s C-rating was too low, causing brown-outs on
+                the ESP32 under high thrust.
+              </li>
+              <li>
+                Standard wiring and assembly issues forced multiple rebuilds of
+                the airframe and electronics, informing better design
+                guidelines for future iterations.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Standards & Protocols -->
+    <section id="standards" class="section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <h2>Standards &amp; Protocols</h2>
+          <p>
+            The project references electrical safety, measurement, and material
+            standards, along with robust communication protocols.
+          </p>
+        </div>
+
+        <div class="grid grid-2" data-animate="fade-up">
+          <article class="card">
+            <h3>Safety &amp; Measurement Standards</h3>
+            <ul class="bullet-list">
+              <li>
+                IEEE C95.1 and C95.3 for safe exposure levels and measurement of
+                electric, magnetic, and electromagnetic fields.
+              </li>
+              <li>
+                IEEE 389 for testing transformers and inductors used in
+                electronic applications.
+              </li>
+              <li>
+                IEEE 1665 for risk management practices relevant to
+                medical-style wearable devices.
+              </li>
+              <li>
+                ASTM A490 for stainless steel sheet material selection and
+                mechanical considerations.
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Communication &amp; Interface Protocols</h3>
+            <ul class="bullet-list">
+              <li>
+                ESP-NOW wireless protocol for low-power, low-latency data
+                transmission between ESP32 modules.
+              </li>
+              <li>
+                I²C for robust, two-wire serial communication between the ESP32,
+                LDC1614, and IMU.
+              </li>
+              <li>
+                Python-based UDP / RPC bridge for AirSim integration and
+                logging.
+              </li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -228,8 +533,9 @@
         <div class="section-header" data-animate="fade-up">
           <h2>Beyond Drones: Where This Can Go</h2>
           <p>
-            The same inductive sensing architecture can power rehabilitation tools,
-            assistive communication devices, and industrial gesture controllers.
+            The same inductive sensing architecture can power rehabilitation
+            tools, assistive communication devices, and industrial gesture
+            controllers.
           </p>
         </div>
 
@@ -238,7 +544,8 @@
             <h3>Pediatric Rehab</h3>
             <p>
               Turn repetitive fine-motor exercises into an engaging game:
-              children control drones or virtual avatars by completing therapy gestures.
+              children control drones or virtual avatars by completing therapy
+              gestures.
             </p>
           </article>
           <article class="card" data-animate="fade-up">
@@ -251,8 +558,9 @@
           <article class="card" data-animate="fade-up">
             <h3>Industrial Control</h3>
             <p>
-              Enable hands-free interaction with robots or machinery in environments
-              where traditional controllers are impractical or unsafe.
+              Enable hands-free interaction with robots or machinery in
+              environments where traditional controllers are impractical or
+              unsafe.
             </p>
           </article>
         </div>
@@ -265,8 +573,9 @@
         <div class="section-header" data-animate="fade-up">
           <h2>Demo</h2>
           <p>
-            See the glove in action controlling takeoff, translation, and yaw using only
-            two core gestures, filtered through our safety and voting logic.
+            See the glove in action controlling takeoff, translation, and yaw
+            using three core gestures, filtered through our safety and voting
+            logic.
           </p>
         </div>
 
@@ -284,8 +593,9 @@
           -->
           <div class="demo-placeholder">
             <p>
-              Add your demo video, GIF, or sequence of images here. For now, this section
-              highlights that a full end-to-end control loop is already working.
+              Add your demo video, GIF, or sequence of images here. For now,
+              this section highlights that a full end-to-end control loop from
+              glove to drone has been demonstrated in simulation and hardware.
             </p>
             <a href="#" class="btn btn-secondary">Add Demo Link</a>
           </div>
@@ -298,7 +608,10 @@
       <div class="container">
         <div class="section-header" data-animate="fade-up">
           <h2>Team &amp; Advisor</h2>
-          <p>GestureGlove is being developed as Capstone Team #1 in NYIT’s ECE program.</p>
+          <p>
+            The IMU/Inductive Sensing Glove for Drone Control is being developed
+            as Capstone Team #1 in NYIT’s ECE program.
+          </p>
         </div>
 
         <div class="grid grid-2 team-grid">
@@ -313,10 +626,15 @@
           </div>
           <div class="card" data-animate="fade-left">
             <h3>Faculty Advisor</h3>
-            <p><strong>Dr. Reza K. Amineh</strong><br />Department of Electrical &amp; Computer Engineering<br />New York Institute of Technology</p>
+            <p>
+              <strong>Dr. Reza K. Amineh</strong><br />
+              Department of Electrical &amp; Computer Engineering<br />
+              New York Institute of Technology
+            </p>
             <p class="note">
-              This project is part of a multi-semester effort to explore inductive sensing,
-              wearable interfaces, and embedded AI for human–machine interaction.
+              This project is part of a multi-semester effort to explore
+              inductive sensing, wearable interfaces, and embedded AI for
+              human–machine interaction.
             </p>
           </div>
         </div>
@@ -344,7 +662,12 @@
           </a>
           <a class="card card-link" href="Senior Design 2 Midterm Report.pdf" target="_blank" rel="noreferrer">
             <h3>Midterm Report</h3>
-            <p>Full project proposal, technical architecture, risks, and commercialization plan.</p>
+            <p>Initial project proposal, early architecture, and design plan.</p>
+            <span class="card-link-label">Download PDF →</span>
+          </a>
+          <a class="card card-link" href="Senior Design II Final Presentation (1).pdf" target="_blank" rel="noreferrer">
+            <h3>Final Presentation Slides</h3>
+            <p>Complete system overview, ML results, drone platform, and standards.</p>
             <span class="card-link-label">Download PDF →</span>
           </a>
         </div>
@@ -353,22 +676,21 @@
   </main>
 
   <!-- Gui -->
-   <section id="gui" class="section section-alt">
-  <div class="container">
-    <div class="section-header" data-animate="fade-up">
-      <h2>Live Glove Output</h2>
-      <p>
-        Raw sensor values and decoded gesture streamed from the glove in real time.
-      </p>
-    </div>
+  <section id="gui" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <h2>Live Glove Output</h2>
+        <p>
+          Raw sensor values and decoded gesture streamed from the glove in real time.
+        </p>
+      </div>
 
-    <div class="card" data-animate="fade-up">
-      <div id="sensor-status" class="note">Connecting to glove stream…</div>
-      <pre id="sensor-output" class="sensor-output-block">// waiting for data…</pre>
+      <div class="card" data-animate="fade-up">
+        <div id="sensor-status" class="note">Connecting to glove stream…</div>
+        <pre id="sensor-output" class="sensor-output-block">// waiting for data…</pre>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
